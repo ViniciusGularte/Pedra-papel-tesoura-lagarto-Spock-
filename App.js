@@ -5,16 +5,33 @@ import { StyleSheet,Button, Text, View } from 'react-native';
 export default class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {escolhaUsuario: ''}
+    this.state = {escolhaUsuario: '',escolhaComputador:''}
 
   }
   jokenpo(escolhaUsuario){
-   this.setState({escolhaUsuario : escolhaUsuario});
+   var escolhaComputador="";
+   var nAleatorio = Math.floor(Math.random() * 5);
+   switch (nAleatorio) {
+     case 0:
+     escolhaComputador = "Spock";break;
+     case 1:
+     escolhaComputador = "Lagarto";break;
+     case 2:
+     escolhaComputador = "Papel";break;
+     case 3:
+     escolhaComputador = "Pedra";break;
+     case 4:
+     escolhaComputador = "Tesoura";break;
+     default:"Error";break;
+
+   }
+
+   this.setState({escolhaUsuario : escolhaUsuario,escolhaComputador : escolhaComputador});
   }
   render() {
     return (
       <View style={styles.container}>
-         <Text>Escolha do computador</Text>
+         <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
          <Text>Escolha do Usuario {this.state.escolhaUsuario}</Text>
          <Text>Resultado</Text>
          <Button onPress={() => {this.jokenpo('pedra')}} title='pedra'/>
