@@ -1,6 +1,6 @@
 # Em desenvolvimento
 
-### Regras
+### Regras :scroll:
 
 
 #### Tesoura corta papel
