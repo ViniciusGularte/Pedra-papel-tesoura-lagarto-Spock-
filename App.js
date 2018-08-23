@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet,Button, Text, View } from 'react-native';
+import { StyleSheet,Button,Image, Text, View } from 'react-native';
 
 
 export default class App extends React.Component {
@@ -116,26 +116,52 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-         <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
-         <Text>Escolha do Usuario {this.state.escolhaUsuario}</Text>
-         <Text>Resultado {this.state.resultado}</Text>
-         <Button onPress={() => {this.jokenpo('Pedra')}} title='pedra'/>
-         <Button onPress={() => {this.jokenpo('Papel')}} title='papel'/>
-         <Button onPress={() => {this.jokenpo('Tesoura')}} title='tesoura'/>
-         <Button onPress={() => {this.jokenpo('Spock')}} title='spock'/>
-         <Button onPress={() => {this.jokenpo('Lagarto')}} title='lagarto'/>
-
+      <View>
+         <Topo></Topo>
+         <View style={styles.btnForm}>
+           <View style={styles.btn} ><Button onPress={() => {this.jokenpo('Pedra')}} title='pedra'/></View>
+           <View style={styles.btn}><Button onPress={() => {this.jokenpo('Papel')}} title='papel'/></View>
+           <View style={styles.btn}><Button onPress={() => {this.jokenpo('Tesoura')}} title='tesoura'/></View>
+           <View style={styles.btn}><Button onPress={() => {this.jokenpo('Spock')}} title='spock'/></View>
+           <View style={styles.btn}><Button onPress={() => {this.jokenpo('Lagarto')}} title='lagarto'/></View>
+         </View>
+         <View style={styles.principal}>
+         <Text style={styles.textResultado}>{this.state.resultado}</Text>
+         <Text>Escolha do Computador: {this.state.escolhaComputador}</Text>
+         <Text>Escolha do Usuario: {this.state.escolhaUsuario}</Text>
+         </View>
       </View>
     );
   }
 }
-
+class Topo extends App{
+  render() {
+    return (
+        <View style={styles.topo}><Image source={require('./imgs/wallpaper.png')}/></View>
+     );
+    }
+}
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  topo: {
+    alignItems:'center',
+    marginBottom: 10,
+    justifyContent:'center',
   },
+  principal: {
+    alignItems:'center',
+
+  },
+  btnForm:{
+    marginBottom: 10,
+    flexDirection:'row',
+    justifyContent:'space-between',
+  },
+  btn: {
+   alignSelf: 'flex-start',
+  },
+  textResultado:{
+    fontSize:30,
+    color:'rgb(162, 30, 30)',
+    fontWeight:'bold',
+  }
 });
