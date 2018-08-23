@@ -5,7 +5,7 @@ import { StyleSheet,Button, Text, View } from 'react-native';
 export default class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {escolhaUsuario: '',escolhaComputador:''}
+    this.state = {escolhaUsuario: '',escolhaComputador:'',resultado:''}
 
   }
   jokenpo(escolhaUsuario){
@@ -25,20 +25,106 @@ export default class App extends React.Component {
      default:"Error";break;
 
    }
+   var resultado ="";
+    if(escolhaComputador == "Pedra"){
+       if(escolhaUsuario == "Pedra"){
+         resultado= "Empate" ;
+       }
+       if(escolhaUsuario == "Papel"){
+         resultado = "Usuario Ganhou";
+       }
+       if(escolhaUsuario == "Tesoura"){
+         resultado = "Computador Ganhou";
+       }
+       if(escolhaUsuario == "Spock"){
+         resultado = "Usuario Ganhou";
+       }
+       if(escolhaUsuario == "Lagarto"){
+         resultado = "Computador Ganhou";
+       }
+    }
+    if(escolhaComputador == "Papel"){
+      if(escolhaUsuario == "Pedra"){
+        resultado = "Computador Ganhou";
+      }
+      if(escolhaUsuario == "Papel"){
+        resultado = "Empate";
+      }
+      if(escolhaUsuario == "Tesoura"){
+        resultado = "Usuario Ganhou";
+      }
+      if(escolhaUsuario == "Spock"){
+        resultado = "Computador Ganhou";
+      }
+      if(escolhaUsuario == "Lagarto"){
+        resultado = "Usuario Ganhou";
+      }
+    }
+    if(escolhaComputador == "Tesoura"){
+      if(escolhaUsuario == "Pedra"){
+        resultado = "Usuario Ganhou";
+      }
+      if(escolhaUsuario == "Papel"){
+        resultado = "Computador Ganhou";
+      }
+      if(escolhaUsuario == "Tesoura"){
+        resultado = "Empate";
+      }
+      if(escolhaUsuario == "Spock"){
+        resultado = "Computador Ganhou";
+      }
+      if(escolhaUsuario == "Lagarto"){
+        resultado = "Usuario Ganhou";
+      }
+    }
+    if(escolhaComputador == "Spock"){
+      if(escolhaUsuario == "Pedra"){
+        resultado = "Usuario Ganhou";
+      }
+      if(escolhaUsuario == "Papel"){
+        resultado = "Computador Ganhou";
+      }
+      if(escolhaUsuario == "Tesoura"){
+        resultado = "Usuario Ganhou";
+      }
+      if(escolhaUsuario == "Spock"){
+        resultado = "Empate";
+      }
+      if(escolhaUsuario == "Lagarto"){
+        resultado = "Computador Ganhou";
+      }
+    }
+    if(escolhaComputador == "Lagarto"){
+      if(escolhaUsuario == "Pedra"){
+        resultado = "Usuario Ganhou";
+      }
+      if(escolhaUsuario == "Papel"){
+        resultado = "Computador Ganhou";
+      }
+      if(escolhaUsuario == "Tesoura"){
+        resultado = "Usuario Ganhou";
+      }
+      if(escolhaUsuario == "Spock"){
+        resultado = "Computador Ganhou";
+      }
+      if(escolhaUsuario == "Lagarto"){
+        resultado = "Empate";
+      }
+    }
 
-   this.setState({escolhaUsuario : escolhaUsuario,escolhaComputador : escolhaComputador});
+   this.setState({escolhaUsuario : escolhaUsuario,escolhaComputador : escolhaComputador,resultado: resultado});
   }
   render() {
     return (
       <View style={styles.container}>
          <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
          <Text>Escolha do Usuario {this.state.escolhaUsuario}</Text>
-         <Text>Resultado</Text>
-         <Button onPress={() => {this.jokenpo('pedra')}} title='pedra'/>
-         <Button onPress={() => {this.jokenpo('papel')}} title='papel'/>
-         <Button onPress={() => {this.jokenpo('tesoura')}} title='tesoura'/>
-         <Button onPress={() => {this.jokenpo('spock')}} title='spock'/>
-         <Button onPress={() => {this.jokenpo('lagarto')}} title='lagarto'/>
+         <Text>Resultado {this.state.resultado}</Text>
+         <Button onPress={() => {this.jokenpo('Pedra')}} title='pedra'/>
+         <Button onPress={() => {this.jokenpo('Papel')}} title='papel'/>
+         <Button onPress={() => {this.jokenpo('Tesoura')}} title='tesoura'/>
+         <Button onPress={() => {this.jokenpo('Spock')}} title='spock'/>
+         <Button onPress={() => {this.jokenpo('Lagarto')}} title='lagarto'/>
 
       </View>
     );
