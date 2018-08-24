@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet,Button,Image, Text, View } from 'react-native';
 
-
+import from './src/components/topo';
 export default class App extends React.Component {
   constructor(props){
     super(props);
@@ -134,13 +134,7 @@ export default class App extends React.Component {
     );
   }
 }
-class Topo extends App{
-  render() {
-    return (
-        <View style={styles.topo}><Image source={require('./imgs/wallpaper.png')}/></View>
-     );
-    }
-}
+
 const styles = StyleSheet.create({
   topo: {
     alignItems:'center',
