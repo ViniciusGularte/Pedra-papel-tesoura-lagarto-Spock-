@@ -10,7 +10,7 @@ export default class App extends React.Component {
   }
   jokenpo(escolhaUsuario){
    var escolhaComputador="";
-   var nAleatorio = Math.floor(Math.random() * 5);
+   const nAleatorio = Math.floor(Math.random() * 5);
    switch (nAleatorio) {
      case 0:
      escolhaComputador = "Spock";break;
@@ -112,12 +112,12 @@ export default class App extends React.Component {
       }
     }
 
-   this.setState({escolhaUsuario : escolhaUsuario,escolhaComputador : escolhaComputador,resultado: resultado});
+   this.setState({escolhaUsuario,escolhaComputador,resultado});
   }
   render() {
     return (
       <View>
-         <Topo></Topo>
+         <Topo/>
          <View style={styles.btnForm}>
            <View style={styles.btn} ><Button onPress={() => {this.jokenpo('Pedra')}} title='pedra'/></View>
            <View style={styles.btn}><Button onPress={() => {this.jokenpo('Papel')}} title='papel'/></View>
