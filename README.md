@@ -1,5 +1,3 @@
-# Em desenvolvimento
-
 ### Regras :scroll:
 
 
